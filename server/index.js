@@ -5,10 +5,14 @@ const app = express()
 const mongoose = require('mongoose')
 const UserModel = require('./models/Users')
 
+const cors = require('cors')
+
 mongoose.connect('mongodb+srv://user123:password123Tech@cluster0.4ukcz5f.mongodb.net/MernTutorial?retryWrites=true&w=majority')
 
 //* Tool to parse json content into object
 app.use(express.json())
+
+app.use(cors())
 
 //* Request to get user data by following http://localhost:3001/getUsers
 app.get("/getUsers", (req, res) => {
